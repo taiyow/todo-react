@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import './App.css'
 
-export const App = () => {
+export const Todo = () => {
   return (
-    <div className="App">
+    <div>
       <h1>Hello, world</h1>
     </div>
   )
