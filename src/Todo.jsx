@@ -57,7 +57,6 @@ export const Todo = () => {
         onClickComplete={onClickComplete}
         onClickDelete={onClickDelete}
       />
-
       <CompleteTodo
         todos={completeTodos}
         onClickBack={onClickBack}

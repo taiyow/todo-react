@@ -1,8 +1,18 @@
+const style = {
+    border: "2px solid #aacfd0",
+    width: "300px",
+    minHeight: "200px",
+    padding: "8px",
+    margin: "8px",
+    borderRadius: "8px",
+    backgroundColor: "#c9dede"
+}
+
 export const CompleteTodo = (props) => {
     const {todos, onClickBack} = props;
     
     return (
-        <div className="complete-area">
+        <div style={style}>
             <p className="title">完了のTODO</p>
             <ul>
                 { todos.map((todo, index) => (
