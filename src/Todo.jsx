@@ -4,13 +4,8 @@ import { useState } from 'react'
 
 export const Todo = () => {
   const [todoText, setTodoText] = useState("");
-  const [incompleteTodos, setIncompleteTodos] = useState([
-    "Todo1です",
-    "Todo2です"
-  ]);
-  const [completeTodos, setCompleteTodos] = useState([
-    "Todoでしたよ"
-  ]);
+  const [incompleteTodos, setIncompleteTodos] = useState([]);
+  const [completeTodos, setCompleteTodos] = useState([]);
 
   const onChangeTodoText = (event) => {
     setTodoText(event.target.value);
@@ -36,6 +31,15 @@ export const Todo = () => {
     const newCompleteTodos = [...completeTodos];
     newCompleteTodos.push(incompleteTodos[index])
     setCompleteTodos(newCompleteTodos);
+  };
+
+  const onClickBack = (index) => {
+    const newCompleteTodos = [...completeTodos];
+    newCompleteTodos.splice(index, 1);
+    setCompleteTodos(newCompleteTodos);
+    const newIncompleteTodos = [...incompleteTodos];
+    newIncompleteTodos.push(completeTodos[index])
+    setIncompleteTodos(newIncompleteTodos);
   };
 
   return (
@@ -65,7 +69,7 @@ export const Todo = () => {
             <li key={todo}>
               <div className="list-row">
                 <p className="todo-item">{todo}</p>
-                <button>戻す</button>
+                <button onClick={() => onClickBack(index)}>戻す</button>
               </div>
             </li>
           ))}
